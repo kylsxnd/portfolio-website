@@ -171,9 +171,154 @@ HTML_TEMPLATE = """
             margin: 0 auto;
         }
 
+        /* Experience Section */
+        .experience {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .experience-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .experience-timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .experience-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            margin-bottom: 2rem;
+        }
+
+        .experience-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: 4px solid #f8f9fa;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .experience-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .experience-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .experience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 25px;
+            right: -15px;
+            border: 15px solid transparent;
+            border-left-color: white;
+        }
+
+        .experience-item:nth-child(even) .experience-card::before {
+            left: -15px;
+            border-left-color: transparent;
+            border-right-color: white;
+        }
+
+        .experience-header {
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            color: #667eea;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-period {
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-location {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .experience-description {
+            color: #555;
+            line-height: 1.6;
+            margin-top: 1rem;
+        }
+
+        .experience-achievements {
+            margin-top: 1rem;
+        }
+
+        .experience-achievements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-achievements li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .experience-achievements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
         /* Skills Section */
         .skills {
-            background: #f8f9fa;
+            background: white;
             padding: 80px 0;
         }
 
@@ -185,7 +330,7 @@ HTML_TEMPLATE = """
         }
 
         .skill-card {
-            background: white;
+            background: #f8f9fa;
             padding: 2rem;
             border-radius: 10px;
             text-align: center;
@@ -199,7 +344,7 @@ HTML_TEMPLATE = """
 
         /* Projects Section */
         .projects {
-            background: white;
+            background: #f8f9fa;
             padding: 80px 0;
         }
 
@@ -211,7 +356,7 @@ HTML_TEMPLATE = """
         }
 
         .project-card {
-            background: #f8f9fa;
+            background: white;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
@@ -393,7 +538,7 @@ HTML_TEMPLATE = """
 
         .category-btn {
             padding: 0.5rem 1.5rem;
-            background: #f8f9fa;
+            background: white;
             border: 2px solid #667eea;
             color: #667eea;
             border-radius: 25px;
@@ -432,6 +577,41 @@ HTML_TEMPLATE = """
                 flex-direction: column;
                 align-items: center;
             }
+
+            /* Mobile Timeline */
+            .experience-timeline::after {
+                left: 20px;
+            }
+
+            .experience-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 20px;
+            }
+
+            .experience-item::after {
+                left: 10px;
+            }
+
+            .experience-item:nth-child(even) {
+                left: 0%;
+            }
+
+            .experience-item:nth-child(even)::after {
+                left: 10px;
+            }
+
+            .experience-card::before {
+                left: -15px;
+                border-left-color: transparent;
+                border-right-color: white;
+            }
+
+            .experience-item:nth-child(even) .experience-card::before {
+                left: -15px;
+                border-left-color: transparent;
+                border-right-color: white;
+            }
         }
     </style>
 </head>
@@ -443,6 +623,7 @@ HTML_TEMPLATE = """
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">Tentang</a></li>
+                <li><a href="#experience">Pengalaman</a></li>
                 <li><a href="#skills">Keahlian</a></li>
                 <li><a href="#projects">Project</a></li>
                 <li><a href="#contact">Kontak</a></li>
@@ -470,6 +651,39 @@ HTML_TEMPLATE = """
                 <div class="about-text">
                     <p>{{ tentang_saya }}</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Pengalaman Kerja</h2>
+            <div class="experience-timeline">
+                {% for exp in pengalaman %}
+                <div class="experience-item">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div class="experience-title">{{ exp.posisi }}</div>
+                            <div class="experience-company">{{ exp.perusahaan }}</div>
+                            <div class="experience-period">{{ exp.periode }}</div>
+                            <div class="experience-location">{{ exp.lokasi }}</div>
+                        </div>
+                        <div class="experience-description">
+                            {{ exp.deskripsi }}
+                        </div>
+                        {% if exp.pencapaian %}
+                        <div class="experience-achievements">
+                            <ul>
+                                {% for pencapaian in exp.pencapaian %}
+                                <li>{{ pencapaian }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -633,12 +847,50 @@ HTML_TEMPLATE = """
 </html>
 """
 
-# Data untuk portfolio - TANPA BAGIAN TEKNOLOGI
+# Data untuk portfolio - DENGAN PENGALAMAN KERJA
 PORTFOLIO_DATA = {
     'nama': 'Muhammad Fauzan Hariyono',
     'profesi': 'Graphic Designer | 3D Animator Blender | Informatic Student',
     'deskripsi_singkat': 'Passionate Developer & Designer',
     'tentang_saya': 'Saya Muhammad Fauzan Hariyono sebagai mahasiswa informatika semester 4 di Universitas Gunadarma, telah mengembangkan keahlian teknis yang signifikan melalui partisipasi aktif dalam proyek-proyek seperti animator 3D. Keahlian bahasa saya terbukti dengan skor TOEIC yang impresif sebesar 726 yang saya peroleh melalui kompetisi yang diadakan oleh sekolah. Saya juga telah mendapatkan sertifikat BNSP sebagai pengakuan atas penyelesaian proyek perusahaan dengan standar yang tepat. Saya saat ini sedang memperdalam pengetahuan saya dalam pemrograman dan secara proaktif mencari kesempatan untuk memperluas pengalaman profesional saya di masa depan.',
+    'pengalaman': [
+        {
+         'posisi': '3D Blender Animation',
+            'perusahaan': 'Kulstori',
+            'periode': 'May 2022 -  Jul 2022',
+            'lokasi': 'Cinere, Jakarta Selatan',
+            'deskripsi': 'membuat animasi belender yang seru dan menyenangkan untuk penonton , dan merigging karakter untuk di animasikan di dalam sebuah video nanti.',
+            'pencapaian': [
+                'berpengalaman sebagai animator 3D di kulstori dan membantu menganimasikan karakter RISKA DAN SI GEMBUL',
+                'ahli dalam merigging dan menganimasikan karakter agar bergerak secara alami dan mulus',
+                'kolaboratif dalam tim dan berfokus pada penciptaan animasi yang menarik dan disukai penonton',
+            ]   
+        },
+        {
+         'posisi': 'Social Media Designer',
+            'perusahaan': 'Morephope',
+            'periode': 'Juli 2022 - Okt 2022',
+            'lokasi': 'Kalibata, Jakarta Timur',
+            'deskripsi': 'Merancang kampanye edukasi tentang manfaat kopi melalui konten visual yang menarik dan informatif untuk meningkatkan awareness brand dan engagement audience.',
+            'pencapaian': [
+                'menciptakan desain poster yang menarik untuk instagram dan berbagai sosial media lainya',
+                'berpatisipasi aktif dalam kerja tim untuk mengembangkan konsep-konsep kreatif yang inovatif',
+                'bertanggung jawab atas perekaman dan penyuntingan video untuk konten instagram dan media sosial lainya',
+            ]
+        },
+        {
+            'posisi': 'Animator And Vector Illustration',
+            'perusahaan': 'Tefa 2D',
+            'periode': '2021 - 2023 ',
+            'lokasi': 'Ciracas, Jakarta Timur',
+            'deskripsi': 'saya membuat animasi vektor dalem bentuk 2D untuk iklan komersil sekolah dan untuk pendaftaran mahasiswa baru di smk itu.',
+            'pencapaian': [
+                'Membuat animasi 2d berbentuk video iklan komersil',
+                'Membantu tim untuk membuat video sesuai kesepakatan yang akan menghasilkan hasil yang memukau',
+                'Berkolaborasi dengan tim marketing untuk strategi konten yang efektif'
+            ]
+        },
+    ],
     'keahlian': [
         {
             'nama': 'Graphic Design',
@@ -754,11 +1006,13 @@ if __name__ == '__main__':
     print("   📁 foto cv/")
     print("   📁 video/")
     print("   📄 portfolio.py")
-    print("\n✅ PERUBAHAN YANG DILAKUKAN:")
-    print("   🗑️ Menghapus bagian 'Teknologi:' dari semua project cards")
-    print("   📝 Menambahkan deskripsi yang lebih detail untuk setiap project")
-    print("   🎨 Menyesuaikan layout agar lebih clean tanpa bagian teknologi")
-    print("   📐 Mengubah min-height project card dari 450px ke 400px")
+    print("\n✅ FITUR BARU YANG DITAMBAHKAN:")
+    print("   👨‍💼 Section Pengalaman Kerja dengan timeline design")
+    print("   🎯 4 pengalaman kerja profesional termasuk freelance")
+    print("   📊 Pencapaian spesifik untuk setiap pengalaman")
+    print("   🎨 Design timeline yang modern dan responsive")
+    print("   📱 Mobile-friendly experience section")
+    print("   🔗 Navigasi header yang sudah diupdate")
     
     if __name__ == '__main__':
         app.run(host='0.0.0.0', port=5000, debug=False)
